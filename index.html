@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant RH — CSD Mons-Wapi</title>
+  <style>
+    :root {
+      --couleur-principale: #c00000;
+      --couleur-secondaire: #e63946;
+      --couleur-texte: #333333;
+      --couleur-fond: #f9f9f9;
+    }
+    body { margin:0; font-family:Arial,sans-serif; color:var(--couleur-texte); background-color:var(--couleur-fond); }
+    .container { width:90%; max-width:800px; margin:0 auto; padding:20px 0; text-align:center; }
+    header { background-color:var(--couleur-principale); color:white; padding:30px 0; }
+    header h1 { margin:0; font-size:2em; }
+    header p { margin:5px 0 0; font-size:1.2em; }
+    .btn { display:block; width:100%; max-width:400px; margin:10px auto; padding:15px; font-size:1em; color:white; background-color:var(--couleur-secondaire); border:none; border-radius:5px; cursor:pointer; text-decoration:none; }
+    .btn:hover { background-color:var(--couleur-principale); }
+    footer { background-color:var(--couleur-principale); color:white; padding:20px 0; margin-top:40px; }
+    .hidden { display:none; }
+    p { font-size:1.1em; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Assistant RH — CSD Mons-Wapi</h1>
+    <p>Service RH</p>
+  </div>
+</header>
+
+<main class="container">
+  <div id="themes">
+    <h2>Choisissez un thème :</h2>
+    <button class="btn" onclick="showQuestions('accident')">Accident de travail</button>
+    <button class="btn" onclick="showQuestions('paie')">Paie</button>
+    <button class="btn" onclick="showQuestions('maladie')">Maladie</button>
+  </div>
+
+  <div id="questions" class="hidden">
+    <h2 id="questionTitle"></h2>
+    <button class="btn" id="questionBtn"></button>
+    <button class="btn" onclick="goBack('themes')">Retourner à la page précédente</button>
+  </div>
+
+  <div id="reponse" class="hidden">
+    <h2 id="reponseTitle"></h2>
+    <p id="reponseText"></p>
+    <button class="btn" onclick="goBack('questions')">Retourner à la page précédente</button>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 CSD Mons-Wapi — Service RH</p>
+  </div>
+</footer>
+
+<script>
+  const data = {
+    accident: {
+      question: "Que faire si j'ai un accident de travail ?",
+      reponse: "En cas d’accident de travail, veuillez informer immédiatement votre responsable direct et le service RH. Un formulaire d’accident doit être complété dans les 24 h. Vous serez invité à consulter un médecin du travail et toutes les démarches internes seront lancées pour garantir votre suivi et votre sécurité."
+    },
+    paie: {
+      question: "Quand serai‑je payé ce mois‑ci ?",
+      reponse: "Les salaires sont versés le 25 du mois. Si ce jour tombe un week-end ou un jour férié, le paiement sera effectif le jour ouvrable précédent. En cas de problème, merci de contacter le service paie à paie@csdmons-wapi.be."
+    },
+    maladie: {
+      question: "Quelle est la procédure si je suis malade ?",
+      reponse: "Si vous êtes malade, vous devez transmettre votre certificat médical à votre responsable et au service RH dans les 48 h. Assurez-vous que votre dossier maladie soit à jour, et respectez les consignes de reprise (avis médical, entretien avec le médecin du travail) avant de revenir sur le site."
+    }
+  };
+
+  let currentTheme = "";
+  function showQuestions(theme) {
+    currentTheme = theme;
+    document.getElementById('themes').classList.add('hidden');
+    document.getElementById('questions').classList.remove('hidden');
+    document.getElementById('questionTitle').innerText = theme.charAt(0).toUpperCase() + theme.slice(1);
+    const btn = document.getElementById('questionBtn');
+    btn.innerText = data[theme].question;
+    btn.onclick = showReponse;
+  }
+
+  function showReponse() {
+    document.getElementById('questions').classList.add('hidden');
+    document.getElementById('reponse').classList.remove('hidden');
+    document.getElementById('reponseTitle').innerText = data[currentTheme].question;
+    document.getElementById('reponseText').innerText = data[currentTheme].reponse;
+  }
+
+  function goBack(section) {
+    document.getElementById('themes').classList.add('hidden');
+    document.getElementById('questions').classList.add('hidden');
+    document.getElementById('reponse').classList.add('hidden');
+    document.getElementById(section).classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
