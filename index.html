@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant RH — CSD Mons-Wapi — Service RH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Assistant RH — CSD Mons‑Wapi</h1>
+      <p>Service RH</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="menu">
+      <h2>Que souhaitez‑vous savoir ?</h2>
+      <button class="btn" data-q="accident">Que faire si j'ai un accident de travail ?</button>
+      <button class="btn" data-q="paie">Quand serai‑je payé ce mois‑ci ?</button>
+      <button class="btn" data-q="maladie">Quelle est la procédure si je suis malade ?</button>
+    </div>
+    <div id="reponse" class="hidden">
+      <h2>Réponse</h2>
+      <p id="texteReponse"></p>
+      <button class="btn retour">Retour au menu</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 CSD Mons‑Wapi — Service RH</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
