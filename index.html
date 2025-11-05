@@ -13,88 +13,89 @@
       --couleur-fond: #f9f9f9;
     }
 
-```
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: var(--couleur-texte);
-  background-color: var(--couleur-fond);
-}
+    body {
+      margin: 0;
+      /* Stack de polices plus robuste : utilise la police système quand disponible (Android → Roboto),
+         puis Segoe UI, Arial, puis sans-serif en dernier recours */
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--couleur-texte);
+      background-color: var(--couleur-fond);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-.container {
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
-  text-align: center;
-}
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 0;
+      text-align: center;
+    }
 
-header {
-  background-color: var(--couleur-principale);
-  color: white;
-  padding: 30px 0;
-}
+    header {
+      background-color: var(--couleur-principale);
+      color: white;
+      padding: 30px 0;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 2em;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
 
-header p {
-  margin: 5px 0 0;
-  font-size: 1.2em;
-}
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+    }
 
-.btn {
-  display: block;
-  width: 90%;
-  max-width: 400px;
-  margin: 10px auto;
-  padding: 12px 15px;
-  font-size: 1em;
-  color: white;
-  background-color: var(--couleur-secondaire);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
+    .btn {
+      display: block;
+      width: 90%;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 12px 15px;
+      font-size: 1em;
+      color: white;
+      background-color: var(--couleur-secondaire);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
 
-.btn:hover {
-  background-color: var(--couleur-principale);
-}
+    .btn:hover {
+      background-color: var(--couleur-principale);
+    }
 
-footer {
-  background-color: var(--couleur-principale);
-  color: white;
-  padding: 20px 0;
-  margin-top: 40px;
-}
+    footer {
+      background-color: var(--couleur-principale);
+      color: white;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
 
-.hidden { display: none; }
+    .hidden { display: none; }
 
-p {
-  font-size: 1.1em;
-}
+    p {
+      font-size: 1.1em;
+    }
 
-@media (max-width: 480px) {
-  .btn {
-    width: 100%;
-    font-size: 0.95em;
-    padding: 10px;
-  }
+    @media (max-width: 480px) {
+      .btn {
+        width: 100%;
+        font-size: 0.95em;
+        padding: 10px;
+      }
 
-  header h1 {
-    font-size: 1.5em;
-  }
+      header h1 {
+        font-size: 1.5em;
+      }
 
-  header p {
-    font-size: 1em;
-  }
-}
-```
-
+      header p {
+        font-size: 1em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -140,19 +141,19 @@ const data = {
   accident: [
     {
       question: "Que faire si j'ai un accident de travail ?",
-      reponse: "En cas d’accident de travail, veuillez informer immédiatement votre responsable direct et le service RH. Un formulaire d’accident doit être complété dans les 24 h. Vous serez invité à consulter un médecin du travail et toutes les démarches internes seront lancées pour garantir votre suivi et votre sécurité."
+      reponse: "En cas d’accident de travail, veuillez informer immédiatement votre responsable direct et le service RH. Un formulaire d’accident doit être complété dans les 24 h. Vous serez[...]"
     }
   ],
   paie: [
     {
       question: "Quand serai‑je payé ce mois‑ci ?",
-      reponse: "Les salaires sont versés le 25 du mois. Si ce jour tombe un week-end ou un jour férié, le paiement sera effectif le jour ouvrable précédent. En cas de problème, merci de contacter le service paie à paie@csdmons-wapi.be."
+      reponse: "Les salaires sont versés le 25 du mois. Si ce jour tombe un week-end ou un jour férié, le paiement sera effectif le jour ouvrable précédent. En cas de problème, merci de contacte[...]"
     }
   ],
   incapacite: [
     {
       question: "Quelle est la procédure si je suis malade ?",
-      reponse: "Si vous êtes malade, vous devez transmettre votre certificat médical à votre responsable et au service RH dans les 48 h. Assurez-vous que votre dossier maladie soit à jour, et respectez les consignes de reprise (avis médical, entretien avec le médecin du travail) avant de revenir sur le site."
+      reponse: "Si vous êtes malade, vous devez transmettre votre certificat médical à votre responsable et au service RH dans les 48 h. Assurez-vous que votre dossier maladie soit à jour, et re[...]"
     },
     {
       question: "Que faire si je suis blessé ?",
